@@ -22,14 +22,14 @@ const CardCarousel: React.FC<{ images: string[] }> = ({ images }) => {
 
   if (images.length === 0) {
     return (
-      <div className="w-full h-48 bg-gradient-to-br from-sky-100 to-cyan-100 flex items-center justify-center rounded-t-2xl">
+      <div className="w-full h-56 bg-gradient-to-br from-sky-100 to-cyan-100 flex items-center justify-center rounded-t-2xl">
         <span className="text-sky-400 text-sm font-medium">No Image</span>
       </div>
     );
   }
 
   return (
-    <div className="relative w-full h-48 overflow-hidden rounded-t-2xl group">
+    <div className="relative w-full h-56 overflow-hidden rounded-t-2xl group bg-gray-100">
       <img
         src={images[current]}
         alt={`slide-${current}`}
@@ -101,16 +101,16 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
         onClick={(e) => e.stopPropagation()}
       >
         {/* ── Left: Image gallery ── */}
-        <div className="md:w-[42%] flex-shrink-0 bg-gray-900 flex flex-col">
+        <div className="md:w-[45%] flex-shrink-0 bg-gray-950 flex flex-col">
           {images.length === 0 ? (
-            <div className="flex-1 flex items-center justify-center min-h-[220px]">
+            <div className="flex-1 flex items-center justify-center min-h-[260px]">
               <span className="text-gray-500 text-sm">No images</span>
             </div>
           ) : (
             <>
               {/* Main image */}
               <div
-                className="relative flex-1 min-h-[220px] md:min-h-0 overflow-hidden select-none"
+                className="relative flex-1 min-h-[260px] md:min-h-0 overflow-hidden select-none flex items-center justify-center"
                 onTouchStart={onTouchStart}
                 onTouchEnd={onTouchEnd}
               >
@@ -118,8 +118,8 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
                   key={imgIdx}
                   src={images[imgIdx]}
                   alt={project.name}
-                  className="w-full h-full object-cover"
-                  style={{ minHeight: 220 }}
+                  className="w-full h-full object-contain"
+                  style={{ minHeight: 260 }}
                 />
                 {/* Counter badge */}
                 {images.length > 1 && (
