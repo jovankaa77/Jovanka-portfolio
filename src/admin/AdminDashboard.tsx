@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { User, Trophy, FolderGit2, BookOpen } from 'lucide-react';
+import { User, Trophy, FolderGit2, BookOpen, Briefcase } from 'lucide-react';
 
 const cards = [
   { label: 'About', desc: 'Edit your personal introduction', icon: <User size={28} />, href: '/admin/about', color: 'bg-sky-500' },
   { label: 'Achievement', desc: 'Manage your awards & competitions', icon: <Trophy size={28} />, href: '/admin/achievement', color: 'bg-amber-500' },
   { label: 'Projects', desc: 'Showcase your work & tech stack', icon: <FolderGit2 size={28} />, href: '/admin/projects', color: 'bg-emerald-500' },
   { label: 'Blog', desc: 'Write and publish articles', icon: <BookOpen size={28} />, href: '/admin/blog', color: 'bg-rose-500' },
+  { label: 'Organization', desc: 'Manage organizational experience', icon: <Briefcase size={28} />, href: '/admin/organization', color: 'bg-violet-500' },
 ];
 
 const AdminDashboard: React.FC = () => (
@@ -15,7 +16,7 @@ const AdminDashboard: React.FC = () => (
       <h2 className="text-2xl font-bold text-[#333333]">Welcome back, Admin!</h2>
       <p className="text-[#888] mt-1">Manage your portfolio content from here.</p>
     </div>
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
       {cards.map((c) => (
         <Link
           key={c.href}

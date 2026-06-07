@@ -14,6 +14,7 @@ const EMPTY: Omit<BlogPost, 'id' | 'createdAt' | 'updatedAt'> = {
   title: '',
   content: '',
   coverImage: '',
+  link: '',
 };
 
 const fileToBase64 = (file: File): Promise<string> =>
@@ -178,7 +179,7 @@ const AdminBlog: React.FC = () => {
   };
 
   const openEdit = (item: BlogPost) => {
-    setForm({ title: item.title, content: item.content, coverImage: item.coverImage || '' });
+    setForm({ title: item.title, content: item.content, coverImage: item.coverImage || '', link: item.link || '' });
     setModal({ open: true, editing: item });
   };
 
@@ -360,6 +361,18 @@ const AdminBlog: React.FC = () => {
                   value={form.title}
                   onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
                   placeholder="Blog post title..."
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-[#333333] text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
+                />
+              </div>
+
+              {/* Link */}
+              <div>
+                <label className="block text-sm font-medium text-[#444] mb-1.5">Link (opsional)</label>
+                <input
+                  type="url"
+                  value={form.link || ''}
+                  onChange={(e) => setForm((f) => ({ ...f, link: e.target.value }))}
+                  placeholder="https://..."
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-[#333333] text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
                 />
               </div>

@@ -7,6 +7,7 @@ import {
   Trophy,
   FolderGit2,
   BookOpen,
+  Briefcase,
   LogOut,
   Menu,
   X,
@@ -19,6 +20,7 @@ const navItems = [
   { label: 'Achievement', href: '/admin/achievement', icon: <Trophy size={18} /> },
   { label: 'Projects', href: '/admin/projects', icon: <FolderGit2 size={18} /> },
   { label: 'Blog', href: '/admin/blog', icon: <BookOpen size={18} /> },
+  { label: 'Organization', href: '/admin/organization', icon: <Briefcase size={18} /> },
 ];
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

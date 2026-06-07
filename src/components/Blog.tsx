@@ -3,7 +3,7 @@ import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { BlogPost } from '../types';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Calendar, Search, X } from 'lucide-react';
+import { BookOpen, Calendar, ExternalLink, Search, X } from 'lucide-react';
 
 const Blog: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -51,11 +51,11 @@ const Blog: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-[#F9FAFB] pt-24 pb-20">
+    <section className="min-h-screen bg-[#F9FAFB] dark:bg-gray-900 pt-24 pb-20 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-10">
           <span className="inline-block text-sky-500 text-sm font-semibold tracking-widest uppercase mb-3">Writing</span>
-          <h2 className="text-4xl font-bold text-[#333333] mb-4">Blog</h2>
+          <h2 className="text-4xl font-bold text-[#333333] dark:text-gray-100 mb-4">Blog</h2>
           <div className="w-16 h-1 bg-sky-500 rounded mb-8" />
 
           {/* Search */}
@@ -66,7 +66,7 @@ const Blog: React.FC = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Cari berdasarkan judul atau tanggal..."
-              className="w-full pl-10 pr-8 py-2.5 rounded-xl border border-gray-200 text-sm text-[#333] bg-white focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
+              className="w-full pl-10 pr-8 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 text-sm text-[#333] dark:text-gray-200 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
             />
             {search && (
               <button type="button" onClick={() => setSearch('')}
@@ -80,7 +80,7 @@ const Blog: React.FC = () => {
         {loading ? (
           <div className="space-y-6">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-40 bg-gray-200 rounded-2xl animate-pulse" />
+              <div key={i} className="h-40 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse" />
             ))}
           </div>
         ) : filtered.length === 0 ? (
@@ -96,7 +96,7 @@ const Blog: React.FC = () => {
               <article
                 key={post.id}
                 onClick={() => navigate(`/blog/${post.id}`)}
-                className="bg-white rounded-2xl border border-gray-100 overflow-hidden cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col"
+                className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col"
               >
                 {post.coverImage && (
                   <div className="w-full h-48 overflow-hidden">
@@ -111,14 +111,28 @@ const Blog: React.FC = () => {
                       {formatDate(post.createdAt)}
                     </span>
                   )}
-                  <h3 className="font-bold text-[#333333] text-xl mb-2 group-hover:text-sky-600 transition-colors line-clamp-2">
+                  <h3 className="font-bold text-[#333333] dark:text-gray-100 text-xl mb-2 group-hover:text-sky-600 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-[#666] text-sm leading-relaxed line-clamp-3 flex-1">
+                  <p className="text-[#666] dark:text-gray-400 text-sm leading-relaxed line-clamp-3 flex-1">
                     {getExcerpt(post.content)}
                   </p>
-                  <div className="mt-4 text-sky-500 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read more <span>→</span>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-sky-500 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Read more <span>→</span>
+                    </span>
+                    {post.link && (
+                      <a
+                        href={post.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-1 text-xs text-gray-400 hover:text-sky-500 transition-colors font-medium"
+                      >
+                        <ExternalLink size={12} />
+                        Link
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>

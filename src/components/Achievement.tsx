@@ -78,13 +78,13 @@ const AchievementPage: React.FC = () => {
   }, {});
 
   return (
-    <section className="min-h-screen bg-[#F9FAFB] pt-24 pb-20">
+    <section className="min-h-screen bg-[#F9FAFB] dark:bg-gray-900 pt-24 pb-20 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-12">
           <span className="inline-block text-sky-500 text-sm font-semibold tracking-widest uppercase mb-3">
             Recognition
           </span>
-          <h2 className="text-4xl font-bold text-[#333333] mb-4">Achievements</h2>
+          <h2 className="text-4xl font-bold text-[#333333] dark:text-gray-100 mb-4">Achievements</h2>
           <div className="w-16 h-1 bg-sky-500 rounded" />
         </div>
 
@@ -118,13 +118,13 @@ const AchievementPage: React.FC = () => {
                     {items.map((a) => (
                       <div
                         key={a.id}
-                        className={`border rounded-2xl p-5 ${cfg.bg} transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex flex-col`}
+                        className={`border rounded-2xl p-5 ${cfg.bg} dark:bg-gray-800 dark:border-gray-700 transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex flex-col`}
                       >
                         <div className="flex items-start gap-3 flex-1">
                           <div className="mt-0.5 flex-shrink-0">{cfg.icon}</div>
                           <div className="flex-1 min-w-0">
                             <p className={`font-semibold text-sm mb-1 ${cfg.color}`}>{a.type}</p>
-                            <p className="text-[#333333] font-medium text-sm leading-snug">
+                            <p className="text-[#333333] dark:text-gray-200 font-medium text-sm leading-snug">
                               {a.competitionName}
                             </p>
                             {(a.year || a.organizer) && (

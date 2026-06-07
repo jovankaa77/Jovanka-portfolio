@@ -282,11 +282,11 @@ const Projects: React.FC = () => {
   }, [projects, activeCategory, search]);
 
   return (
-    <section className="min-h-screen bg-[#F9FAFB] pt-24 pb-20">
+    <section className="min-h-screen bg-[#F9FAFB] dark:bg-gray-900 pt-24 pb-20 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-10">
           <span className="inline-block text-sky-500 text-sm font-semibold tracking-widest uppercase mb-3">Work</span>
-          <h2 className="text-4xl font-bold text-[#333333] mb-4">Projects</h2>
+          <h2 className="text-4xl font-bold text-[#333333] dark:text-gray-100 mb-4">Projects</h2>
           <div className="w-16 h-1 bg-sky-500 rounded mb-8" />
 
           {/* Search */}
@@ -297,7 +297,7 @@ const Projects: React.FC = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Cari nama project atau teknologi..."
-              className="w-full pl-10 pr-8 py-2.5 rounded-xl border border-gray-200 text-sm text-[#333] bg-white focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
+              className="w-full pl-10 pr-8 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 text-sm text-[#333] dark:text-gray-200 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
             />
             {search && (
               <button type="button" onClick={() => setSearch('')}
@@ -357,7 +357,7 @@ const Projects: React.FC = () => {
                 <div
                   key={project.id}
                   onClick={() => setActiveProject(project)}
-                  className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer group"
+                  className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer group"
                 >
                   <CardCarousel images={project.images || []} />
                   <div className="p-5 flex flex-col flex-1">
@@ -371,7 +371,7 @@ const Projects: React.FC = () => {
                         )}
                       </div>
                     )}
-                    <h3 className="font-bold text-[#333333] text-lg mb-2 line-clamp-1 group-hover:text-sky-600 transition-colors">
+                    <h3 className="font-bold text-[#333333] dark:text-gray-100 text-lg mb-2 line-clamp-1 group-hover:text-sky-600 transition-colors">
                       {project.name}
                     </h3>
                     <p className="text-[#666] text-sm leading-relaxed mb-4 flex-1 line-clamp-3">

@@ -57,6 +57,16 @@ export interface BlogPost {
   title: string;
   content: string;
   coverImage?: string;
+  link?: string;
   createdAt?: number;
   updatedAt?: number;
+}
+
+export interface Organization {
+  id?: string;
+  name: string;
+  position: string;
+  from: string;
+  until: string;
+  createdAt?: number;
 }
