@@ -4,49 +4,58 @@ import { db } from '../lib/firebase';
 import { Achievement as AchievementItem, AchievementType } from '../types';
 import { Trophy, Star, Award, Users, BadgeCheck, ExternalLink } from 'lucide-react';
 
-const TYPE_CONFIG: Record<AchievementType, { color: string; bg: string; icon: React.ReactNode }> = {
+const TYPE_CONFIG: Record<AchievementType, { color: string; darkColor: string; bg: string; icon: React.ReactNode }> = {
   'Juara 1': {
     color: 'text-amber-700',
+    darkColor: 'dark:text-amber-400',
     bg: 'bg-amber-50 border-amber-200',
     icon: <Trophy size={20} className="text-amber-500" />,
   },
   'Juara 2': {
     color: 'text-slate-600',
+    darkColor: 'dark:text-slate-300',
     bg: 'bg-slate-50 border-slate-200',
     icon: <Trophy size={20} className="text-slate-400" />,
   },
   'Juara 3': {
     color: 'text-orange-700',
+    darkColor: 'dark:text-orange-400',
     bg: 'bg-orange-50 border-orange-200',
     icon: <Trophy size={20} className="text-orange-400" />,
   },
   'Favorite 1': {
     color: 'text-pink-700',
+    darkColor: 'dark:text-pink-400',
     bg: 'bg-pink-50 border-pink-200',
     icon: <Star size={20} className="text-pink-500" />,
   },
   'Favorite 2': {
     color: 'text-pink-600',
+    darkColor: 'dark:text-pink-400',
     bg: 'bg-pink-50 border-pink-100',
     icon: <Star size={20} className="text-pink-400" />,
   },
   'Favorite 3': {
     color: 'text-pink-500',
+    darkColor: 'dark:text-pink-300',
     bg: 'bg-pink-50 border-pink-100',
     icon: <Star size={20} className="text-pink-300" />,
   },
   Awardee: {
     color: 'text-sky-700',
+    darkColor: 'dark:text-sky-400',
     bg: 'bg-sky-50 border-sky-200',
     icon: <Award size={20} className="text-sky-500" />,
   },
   Participant: {
     color: 'text-emerald-700',
+    darkColor: 'dark:text-emerald-400',
     bg: 'bg-emerald-50 border-emerald-200',
     icon: <Users size={20} className="text-emerald-500" />,
   },
   'Sertifikat Kompetensi': {
     color: 'text-teal-700',
+    darkColor: 'dark:text-teal-400',
     bg: 'bg-teal-50 border-teal-200',
     icon: <BadgeCheck size={20} className="text-teal-500" />,
   },
@@ -109,7 +118,7 @@ const AchievementPage: React.FC = () => {
                 <div key={type}>
                   <div className="flex items-center gap-3 mb-5">
                     {cfg.icon}
-                    <h3 className={`text-lg font-bold ${cfg.color}`}>{type}</h3>
+                    <h3 className={`text-lg font-bold ${cfg.color} ${cfg.darkColor}`}>{type}</h3>
                     <span className="text-sm text-gray-400 font-medium">
                       ({items.length} {items.length === 1 ? 'item' : 'items'})
                     </span>
@@ -123,7 +132,7 @@ const AchievementPage: React.FC = () => {
                         <div className="flex items-start gap-3 flex-1">
                           <div className="mt-0.5 flex-shrink-0">{cfg.icon}</div>
                           <div className="flex-1 min-w-0">
-                            <p className={`font-semibold text-sm mb-1 ${cfg.color}`}>{a.type}</p>
+                            <p className={`font-semibold text-sm mb-1 ${cfg.color} ${cfg.darkColor}`}>{a.type}</p>
                             <p className="text-[#333333] dark:text-gray-200 font-medium text-sm leading-snug">
                               {a.competitionName}
                             </p>
