@@ -95,7 +95,7 @@ const OrganizationPage: React.FC = () => {
                   <p className="text-sky-600 dark:text-sky-400 text-sm font-semibold mb-2">
                     {org.position}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 font-medium">
+                  <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-300 font-medium">
                     <CalendarRange size={12} />
                     {org.from} — {org.until}
                   </span>

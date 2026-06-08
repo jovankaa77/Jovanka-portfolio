@@ -180,7 +180,7 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
               )}
               <h2 className="text-xl font-bold text-[#222] leading-tight">{project.name}</h2>
               {project.description && (
-                <p className="text-sm text-[#666] leading-relaxed mt-2">{project.description}</p>
+                <p className="text-sm text-[#666] dark:text-gray-300 leading-relaxed mt-2">{project.description}</p>
               )}
               {techs.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mt-2.5">
@@ -202,17 +202,17 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
           <div className="flex-1 overflow-y-auto px-6 py-5">
             {project.story && project.story.trim() ? (
               <div
-                className="text-[#444] leading-relaxed text-sm
-                  [&_h2]:text-lg [&_h2]:font-bold [&_h2]:mb-3 [&_h2]:mt-5 [&_h2]:text-[#1a1a1a]
-                  [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mb-2 [&_h3]:mt-4 [&_h3]:text-[#333]
+                className="text-[#444] dark:text-gray-300 leading-relaxed text-sm
+                  [&_h2]:text-lg [&_h2]:font-bold [&_h2]:mb-3 [&_h2]:mt-5 [&_h2]:text-[#1a1a1a] dark:[&_h2]:text-gray-100
+                  [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mb-2 [&_h3]:mt-4 [&_h3]:text-[#333] dark:[&_h3]:text-gray-200
                   [&_p]:mb-3 [&_p]:leading-relaxed
                   [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:mb-3 [&_ul_li]:mb-1
-                  [&_em]:italic [&_strong]:font-bold [&_strong]:text-[#333]
+                  [&_em]:italic [&_strong]:font-bold [&_strong]:text-[#333] dark:[&_strong]:text-gray-200
                   [&_img]:max-w-full [&_img]:rounded-xl [&_img]:shadow-md [&_img]:my-4 [&_img]:block"
                 dangerouslySetInnerHTML={{ __html: project.story }}
               />
             ) : (
-              <p className="text-[#666] leading-relaxed text-sm">{project.description}</p>
+              <p className="text-[#666] dark:text-gray-300 leading-relaxed text-sm">{project.description}</p>
             )}
           </div>
 
@@ -374,7 +374,7 @@ const Projects: React.FC = () => {
                     <h3 className="font-bold text-[#333333] dark:text-gray-100 text-lg mb-2 line-clamp-1 group-hover:text-sky-600 transition-colors">
                       {project.name}
                     </h3>
-                    <p className="text-[#666] text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
+                    <p className="text-[#666] dark:text-gray-300 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
                       {project.description}
                     </p>
                     <div className="flex items-center justify-between mt-auto">

@@ -137,7 +137,7 @@ const AchievementPage: React.FC = () => {
                               {a.competitionName}
                             </p>
                             {(a.year || a.organizer) && (
-                              <p className="text-[#888] text-xs mt-2">
+                              <p className="text-[#888] dark:text-gray-400 text-xs mt-2">
                                 {[a.year, a.organizer].filter(Boolean).join(' • ')}
                               </p>
                             )}

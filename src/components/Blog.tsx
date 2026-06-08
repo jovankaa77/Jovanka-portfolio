@@ -114,7 +114,7 @@ const Blog: React.FC = () => {
                   <h3 className="font-bold text-[#333333] dark:text-gray-100 text-xl mb-2 group-hover:text-sky-600 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-[#666] dark:text-gray-400 text-sm leading-relaxed line-clamp-3 flex-1">
+                  <p className="text-[#666] dark:text-gray-300 text-sm leading-relaxed line-clamp-3 flex-1">
                     {getExcerpt(post.content)}
                   </p>
                   <div className="mt-4 flex items-center justify-between">

@@ -108,13 +108,13 @@ const BlogDetail: React.FC = () => {
         <h1 className="text-4xl font-bold text-[#333333] dark:text-gray-100 leading-tight mb-8">{post.title}</h1>
 
         <div
-          className="prose prose-lg max-w-none text-[#444] dark:text-gray-300 leading-relaxed
+          className="prose prose-lg max-w-none text-[#444] dark:text-gray-200 leading-relaxed
             prose-h1:text-[#333333] dark:prose-h1:text-gray-100 prose-h1:font-bold
             prose-h2:text-[#333333] dark:prose-h2:text-gray-100 prose-h2:font-bold
-            prose-h3:text-[#333333] dark:prose-h3:text-gray-200 prose-h3:font-semibold
-            prose-p:text-[#444] dark:prose-p:text-gray-300 prose-p:leading-relaxed
-            prose-strong:text-[#333333] dark:prose-strong:text-gray-200
-            prose-em:text-[#555] dark:prose-em:text-gray-400
+            prose-h3:text-[#333333] dark:prose-h3:text-gray-100 prose-h3:font-semibold
+            prose-p:text-[#444] dark:prose-p:text-gray-200 prose-p:leading-relaxed
+            prose-strong:text-[#333333] dark:prose-strong:text-gray-100
+            prose-em:text-[#555] dark:prose-em:text-gray-300
             prose-img:rounded-xl prose-img:shadow-md
             prose-a:text-sky-500 hover:prose-a:text-sky-700"
           dangerouslySetInnerHTML={{ __html: post.content }}
