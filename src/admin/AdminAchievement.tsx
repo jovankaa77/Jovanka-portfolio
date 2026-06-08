@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   collection,
   getDocs,
@@ -11,7 +11,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { Achievement, AchievementType } from '../types';
-import { Plus, Pencil, Trash2, X, Save } from 'lucide-react';
+import { Plus, Pencil, Trash2, X, Save, Search } from 'lucide-react';
 
 const TYPES: AchievementType[] = [
   'Juara 1', 'Juara 2', 'Juara 3',
@@ -30,6 +30,7 @@ const EMPTY: Omit<Achievement, 'id' | 'createdAt'> = {
 const AdminAchievement: React.FC = () => {
   const [items, setItems] = useState<Achievement[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
   const [modal, setModal] = useState<{ open: boolean; editing: Achievement | null }>({
     open: false,
     editing: null,
@@ -52,6 +53,12 @@ const AdminAchievement: React.FC = () => {
   };
 
   useEffect(() => { fetchAll(); }, []);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return items;
+    return items.filter((i) => i.competitionName.toLowerCase().includes(q));
+  }, [items, search]);
 
   const openCreate = () => {
     setForm(EMPTY);
@@ -109,6 +116,24 @@ const AdminAchievement: React.FC = () => {
         </button>
       </div>
 
+      {/* Search */}
+      <div className="relative">
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Cari berdasarkan Competition Name..."
+          className="w-full pl-10 pr-8 py-2.5 rounded-xl border border-gray-200 text-sm text-[#333] focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all bg-white"
+        />
+        {search && (
+          <button type="button" onClick={() => setSearch('')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+            <X size={14} />
+          </button>
+        )}
+      </div>
+
       {loading ? (
         <div className="grid sm:grid-cols-2 gap-4">
           {[...Array(4)].map((_, i) => (
@@ -119,9 +144,13 @@ const AdminAchievement: React.FC = () => {
         <div className="bg-white rounded-2xl border border-gray-100 p-12 text-center text-gray-400">
           No achievements yet. Click "Add Achievement" to get started.
         </div>
+      ) : filtered.length === 0 ? (
+        <div className="bg-white rounded-2xl border border-gray-100 p-12 text-center text-gray-400">
+          Tidak ada hasil untuk "{search}"
+        </div>
       ) : (
         <div className="grid sm:grid-cols-2 gap-4">
-          {items.map((item) => (
+          {filtered.map((item) => (
             <div
               key={item.id}
               className="bg-white rounded-2xl border border-gray-100 p-5 flex items-center justify-between hover:shadow-md transition-shadow"
