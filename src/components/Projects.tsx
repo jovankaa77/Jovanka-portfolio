@@ -97,7 +97,7 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
     >
       {/* Modal container */}
       <div
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden"
+        className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ── Left: Image gallery ── */}
@@ -169,18 +169,18 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
         {/* ── Right: Story / info ── */}
         <div className="flex-1 flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="flex items-start justify-between px-6 pt-6 pb-4 border-b border-gray-100 flex-shrink-0">
+          <div className="flex items-start justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-700 flex-shrink-0">
             <div className="pr-4">
               {(project.categories || []).length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mb-2">
                   {(project.categories || []).map((c) => (
-                    <span key={c} className="text-[11px] font-semibold bg-sky-100 text-sky-700 px-2.5 py-0.5 rounded-full">{c}</span>
+                    <span key={c} className="text-[11px] font-semibold bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 px-2.5 py-0.5 rounded-full">{c}</span>
                   ))}
                 </div>
               )}
-              <h2 className="text-xl font-bold text-[#222] leading-tight">{project.name}</h2>
+              <h2 className="text-xl font-bold text-[#222] dark:text-gray-100 leading-tight">{project.name}</h2>
               {project.description && (
-                <p className="text-sm text-[#666] dark:text-gray-300 leading-relaxed mt-2">{project.description}</p>
+                <p className="text-sm text-[#666] dark:text-gray-400 leading-relaxed mt-2">{project.description}</p>
               )}
               {techs.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mt-2.5">
@@ -192,7 +192,7 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
             </div>
             <button
               onClick={onClose}
-              className="flex-shrink-0 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg p-1.5 transition-colors"
+              className="flex-shrink-0 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-1.5 transition-colors"
             >
               <X size={20} />
             </button>
@@ -202,23 +202,23 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
           <div className="flex-1 overflow-y-auto px-6 py-5">
             {project.story && project.story.trim() ? (
               <div
-                className="text-[#444] dark:text-gray-300 leading-relaxed text-sm
-                  [&_h2]:text-lg [&_h2]:font-bold [&_h2]:mb-3 [&_h2]:mt-5 [&_h2]:text-[#1a1a1a] dark:[&_h2]:text-gray-100
-                  [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mb-2 [&_h3]:mt-4 [&_h3]:text-[#333] dark:[&_h3]:text-gray-200
+                className="text-[#444] dark:text-gray-400 leading-relaxed text-sm
+                  [&_h2]:text-lg [&_h2]:font-bold [&_h2]:mb-3 [&_h2]:mt-5 [&_h2]:text-[#1a1a1a] dark:[&_h2]:text-gray-200
+                  [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mb-2 [&_h3]:mt-4 [&_h3]:text-[#333] dark:[&_h3]:text-gray-300
                   [&_p]:mb-3 [&_p]:leading-relaxed
                   [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:mb-3 [&_ul_li]:mb-1
-                  [&_em]:italic [&_strong]:font-bold [&_strong]:text-[#333] dark:[&_strong]:text-gray-200
+                  [&_em]:italic [&_strong]:font-bold [&_strong]:text-[#333] dark:[&_strong]:text-gray-300
                   [&_img]:max-w-full [&_img]:rounded-xl [&_img]:shadow-md [&_img]:my-4 [&_img]:block"
                 dangerouslySetInnerHTML={{ __html: project.story }}
               />
             ) : (
-              <p className="text-[#666] dark:text-gray-300 leading-relaxed text-sm">{project.description}</p>
+              <p className="text-[#666] dark:text-gray-400 leading-relaxed text-sm">{project.description}</p>
             )}
           </div>
 
           {/* Footer: Detail more button */}
           {project.link && (
-            <div className="px-6 py-4 border-t border-gray-100 flex-shrink-0">
+            <div className="px-6 py-4 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
               <a
                 href={project.link}
                 target="_blank"
