@@ -109,25 +109,34 @@
   margin: 1rem 0;
 }
 
-/* Dark mode overrides */
+/* Dark mode overrides — !important beats both CSS rules and editor inline styles */
 .dark .prose h1,
 .dark .prose h2,
-.dark .prose h3 {
-  color: #ffffff;
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: #ffffff !important;
 }
 .dark .prose p,
-.dark .prose li {
-  color: #ffffff;
+.dark .prose li,
+.dark .prose td,
+.dark .prose th {
+  color: #ffffff !important;
 }
-.dark .prose strong {
-  color: #ffffff;
+.dark .prose strong,
+.dark .prose b {
+  color: #ffffff !important;
+}
+.dark .prose span {
+  color: #ffffff !important;
 }
 .dark .prose em {
-  color: #e5e7eb;
+  color: #e5e7eb !important;
 }
 .dark .prose blockquote {
-  color: #d1d5db;
+  color: #d1d5db !important;
 }
-.dark .prose * {
-  color: inherit;
+.dark .prose a {
+  color: #38bdf8 !important;
 }
