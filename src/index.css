@@ -108,3 +108,26 @@
   font-style: italic;
   margin: 1rem 0;
 }
+
+/* Dark mode overrides */
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3 {
+  color: #ffffff;
+}
+.dark .prose p,
+.dark .prose li {
+  color: #ffffff;
+}
+.dark .prose strong {
+  color: #ffffff;
+}
+.dark .prose em {
+  color: #e5e7eb;
+}
+.dark .prose blockquote {
+  color: #d1d5db;
+}
+.dark .prose * {
+  color: inherit;
+}
