@@ -105,12 +105,23 @@ const BlogDetail: React.FC = () => {
           )}
         </div>
 
-        <h1 className="text-4xl font-bold text-[#333333] dark:text-gray-100 leading-tight mb-8">{post.title}</h1>
+        <h1 className="text-4xl font-bold text-[#333333] dark:text-white leading-tight mb-8">{post.title}</h1>
 
         <div
-          className="prose prose-lg dark:prose-invert max-w-none leading-relaxed
-            prose-a:text-sky-500 hover:prose-a:text-sky-700
-            prose-img:rounded-xl prose-img:shadow-md"
+          className="max-w-none leading-relaxed text-[#444] dark:text-white
+            [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:mt-6 [&_h1]:text-[#222] dark:[&_h1]:text-white
+            [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mb-3 [&_h2]:mt-6 [&_h2]:text-[#222] dark:[&_h2]:text-white
+            [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-[#333] dark:[&_h3]:text-white
+            [&_p]:mb-4 [&_p]:leading-relaxed [&_p]:text-[#444] dark:[&_p]:text-white
+            [&_strong]:font-bold [&_strong]:text-[#222] dark:[&_strong]:text-white
+            [&_em]:italic [&_em]:text-[#555] dark:[&_em]:text-gray-200
+            [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-4 [&_li]:mb-1 dark:[&_li]:text-white
+            [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:mb-4
+            [&_a]:text-sky-500 [&_a]:hover:text-sky-700 [&_a]:underline
+            [&_img]:max-w-full [&_img]:rounded-xl [&_img]:shadow-md [&_img]:my-4 [&_img]:block
+            [&_blockquote]:border-l-4 [&_blockquote]:border-sky-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[#666] dark:[&_blockquote]:text-gray-300
+            [&_code]:bg-gray-100 dark:[&_code]:bg-gray-800 dark:[&_code]:text-gray-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm
+            [&_pre]:bg-gray-100 dark:[&_pre]:bg-gray-800 [&_pre]:rounded-xl [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:mb-4"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
