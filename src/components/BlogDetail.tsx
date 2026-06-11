@@ -108,7 +108,7 @@ const BlogDetail: React.FC = () => {
         <h1 className="text-4xl font-bold text-[#333333] dark:text-gray-100 leading-tight mb-8">{post.title}</h1>
 
         <div
-          className="prose prose-lg max-w-none text-[#444] dark:text-gray-200 leading-relaxed
+          className="prose prose-lg dark:prose-invert max-w-none text-[#444] dark:text-gray-200 leading-relaxed
             prose-h1:text-[#333333] dark:prose-h1:text-gray-100 prose-h1:font-bold
             prose-h2:text-[#333333] dark:prose-h2:text-gray-100 prose-h2:font-bold
             prose-h3:text-[#333333] dark:prose-h3:text-gray-100 prose-h3:font-semibold
